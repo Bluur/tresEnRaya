@@ -8,6 +8,7 @@ public class Programa {
     public static void main(String[] args) {
         boolean volverJugar = false;
         do{
+            //me gustan las pollas duras
             System.out.println("Bienvenidos al juego del 3 en raya");
             
             //Crea tablero y lo saca por pantalla
