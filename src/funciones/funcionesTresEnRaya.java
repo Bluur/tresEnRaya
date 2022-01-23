@@ -3,7 +3,7 @@ package funciones;
 
 import Funciones.leerDatosTeclado;
 
-public class TresEnRaya {
+public class funcionesTresEnRaya {
     
     public static void mostrarTablero(int tablero[][]){
         if(tablero.length!=3 && tablero[0].length!=3){

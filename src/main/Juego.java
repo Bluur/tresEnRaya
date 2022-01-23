@@ -1,9 +1,9 @@
 package main;
 
 import Funciones.leerDatosTeclado;
-import funciones.TresEnRaya;
+import funciones.funcionesTresEnRaya;
 
-public class Programa {
+public class Juego {
 
     public static void main(String[] args) {
         boolean volverJugar = false;
@@ -11,9 +11,9 @@ public class Programa {
             System.out.println("Bienvenidos al juego del 3 en raya");
             
             //Crea tablero y lo saca por pantalla
-            int tablero [][] = new int[3][3];
+            TresEnRaya tablero = new TresEnRaya();
             System.out.println("Este es vuestro tablero");
-            TresEnRaya.mostrarTablero(tablero);
+            tablero.imprimir();
 
             //Variables booleanas para chequear estados de la partida
             boolean colocar;
@@ -39,7 +39,7 @@ public class Programa {
             }
 
             //Mientras no haya ganador y no se ha terminado el juego se ejecutará el juego
-            while(!ganador && !TresEnRaya.juegoTerminado(tablero)){
+            while(!tablero.hayGanador() && !tablero.juegoTerminado()){
                 do{  
                     //Coje las posiciones del jugador
                     int y = leerDatosTeclado.LeerEntero("Dame la columna en la que quieres colocar", 1, 3);
@@ -48,15 +48,15 @@ public class Programa {
                     x--;
                     
                     //Comprueba si la posición es válida y coloca la pieza, en cada caso negativo saca un mensaje avisando
-                    colocar = TresEnRaya.colocarFicha(tablero, turnoActual, x, y);
+                    colocar = tablero.colocarFicha(turnoActual, x, y);
                     
                     //Muestra el tablero
-                    TresEnRaya.mostrarTablero(tablero);
+                    tablero.imprimir();
                     
                 }while(colocar != true);
                 
                 //Cambia de turno comprobando antes si hay un ganador
-                ganador = TresEnRaya.hayGanador(tablero);
+                ganador = tablero.hayGanador();
                 if(ganador){
                     if(turnoActual ==1){
                         System.out.println("Ha ganado "+j1);
@@ -74,7 +74,7 @@ public class Programa {
                     }
                 }
             }
-            volverJugar = TresEnRaya.seguirJugando(volverJugar);
+            volverJugar = funcionesTresEnRaya.seguirJugando(volverJugar);
         }while(volverJugar);
     }
 
