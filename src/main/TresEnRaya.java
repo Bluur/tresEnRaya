@@ -5,9 +5,6 @@ import funciones.funcionesTresEnRaya;
 
 public class TresEnRaya {
     private int[][] tablero;
-    public static int CASILLA_VACIA = 0;
-    public static int FICHA_EQUIS = 1;
-    public static int FICHA_CIRCULO = 2;
     
     //Constructores
     public TresEnRaya(){
